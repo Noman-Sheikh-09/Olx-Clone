@@ -1,0 +1,36 @@
+.navbarContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.locBox {
+  border: 2px solid #002f34;
+}
+
+.locFeild {
+  border: 2px solid #002f34;
+  padding: 15px;
+  width: 250px;
+  height: 48px;
+}
+.searchBox {
+    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #002f34;
+  border-radius: 7px;
+
+}
+.searchFeild {
+  width: 636px;
+  height: 48px;
+}
+.searchIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #002f34;
+  padding: 15px;
+}

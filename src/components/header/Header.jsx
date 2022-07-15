@@ -1,9 +1,11 @@
-import { Typography, Box, TextField, Select, MenuItem } from "@mui/material";
+import { Typography, Box, TextField, Select, MenuItem, Button } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./HeaderStyle.css";
 import SearchIcon from "@mui/icons-material/Search";
+import UseHeader from "./UseHeader";
 export default function Header() {
+  const [{logoutHandler}] = UseHeader();
   return (
     <div>
       <div className="headerContainer">
@@ -41,6 +43,9 @@ export default function Header() {
         <Link to="/add">
           <h5>+SELL</h5>
         </Link>
+       <Button onClick={logoutHandler}>
+        Logout
+       </Button>
       </div>
     </div>
   );

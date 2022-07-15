@@ -1,9 +1,9 @@
-import LandingPage from "./pages/landingPage/LandingPage";
+import Routing from "./routing/Routing";
 
 function App() {
   return (
     <div className="App">
-      <LandingPage />
+   <Routing />
     </div>
   );
 }

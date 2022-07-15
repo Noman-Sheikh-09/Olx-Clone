@@ -27,8 +27,34 @@
   height: 55px;
   border-radius: 5px;
 }
-.logo{
-    color: black;
-    text-decoration: none;
-font-size: 30px;
+.logo {
+  color: black;
+  text-decoration: none;
+  font-size: 30px;
+}
+.loginLink {
+  color: #002f34;
+  font-size: 20px;
+}
+.loginLink:hover {
+  text-decoration: none;
+}
+.sellLink {
+  color: #002f34;
+  text-decoration: none;
+  background-color: white;
+  width: 80px;
+  text-align: center;
+  height: 30px;
+  background-color: white;
+  border-radius: 40px;
+  border-bottom: 6px solid rgb(255, 206, 50) !important;
+  border-right: 6px solid rgb(58, 119, 255) !important;
+  border-top: 6px solid rgb(25, 229, 219) !important;
+  border-left: 6px solid rgb(255, 206, 50) !important;
+  font-weight: bold;
+  font-size: 18px;
+ 
+
+ 
 }

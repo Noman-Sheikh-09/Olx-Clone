@@ -19,7 +19,7 @@ export const doLogin = (userData, navigate) => async (dispatch) => {
       type: LOGIN,
       payload: user,
     });
-    navigate("/add");
+    navigate("/");
   } catch (error) {
     console.log(error);
   }
@@ -60,14 +60,17 @@ export const doGetActiveUser = () => async (dispatch) => {
     console.log(error);
   }
 };
- export const doLogout = () => async (dispatch) => {
+
+export const doLogout = () => async (dispatch) => {
   try {
     const resValue = await auth.signOut();
- 
+    console.log(resValue);
+
     dispatch({
       type: LOGOUT,
-    })
+    });
+    console.log("after logout", resValue);
   } catch (error) {
     console.log(error);
   }
- }
+};

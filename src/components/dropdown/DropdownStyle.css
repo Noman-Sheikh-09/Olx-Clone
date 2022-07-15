@@ -1,0 +1,11 @@
+.avatarImg{
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+}
+.profileImg{
+    width: 70px;
+    height: 70px;
+    border-radius: 40px;
+    padding: 15px;
+}

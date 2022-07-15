@@ -2,10 +2,12 @@ import { Typography, Box, TextField, Select, MenuItem, Button } from "@mui/mater
 import React from "react";
 import { Link } from "react-router-dom";
 import "./HeaderStyle.css";
+import {useSelector} from 'react-redux'
 import SearchIcon from "@mui/icons-material/Search";
-import UseHeader from "./UseHeader";
+import Dropdown from "../dropdown/Dropdown";
 export default function Header() {
-  const [{logoutHandler}] = UseHeader();
+  const userAuth = useSelector(state=>state.AuthReducer.isUserLoggedIn)
+  console.log("user logiin in header", userAuth);
   return (
     <div>
       <div className="headerContainer">
@@ -37,15 +39,19 @@ export default function Header() {
             <SearchIcon className="searcIcon" />
           </Box>
         </div>
-        <Link to="/login">
+        {
+          userAuth?
+          <Dropdown />
+          :
+        <Link to="/login" className="loginLink">
           <h5>Login</h5>
         </Link>
-        <Link to="/add">
-          <h5>+SELL</h5>
+        }
+
+        <Link to="/add" className="sellLink">
+          <h5 style={{marginTop:'5px'}}>+SELL</h5>
         </Link>
-       <Button onClick={logoutHandler}>
-        Logout
-       </Button>
+     
       </div>
     </div>
   );

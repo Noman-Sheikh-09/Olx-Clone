@@ -13,11 +13,11 @@ export default function LandingPage() {
     <br />
     <img src={Banner} alt="Banner" className='bannerimg'/>
     <br />
-   <Grid container align="center">
+   {/* <Grid container align="center">
     
 <Grid item xs={6} sm={12} md={3} lg={3}>
 </Grid>
-    </Grid>
+    </Grid> */}
     </div>
   )
 }

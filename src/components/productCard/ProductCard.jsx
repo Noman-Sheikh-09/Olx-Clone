@@ -1,18 +1,15 @@
-import { Button, Grid } from "@mui/material";
+import { Button, Grid, Paper } from "@mui/material";
 import React from "react";
-import Banner from "../../assets/banner.jpg";
 import "./ProductCardStyle.css";
-export default function ProductCard() {
+export default function ProductCard({ singleProduct }) {
   return (
-    <>
-      <div className="cardContainer">
-        <img src={Banner} alt="" className="cardImg" width="200" />
-        <h5>Price : 50000</h5>
-        <p>New Banner for olx clone</p>
-        <Button variant="contained" color="secondary">
-          Favourite
-        </Button>
-      </div>
-    </>
+    <Paper elevation={5} className="cardContainer">
+      <img src={singleProduct.image} alt="" className="cardImg" width="200" />
+      <h5>Price : {singleProduct.price}</h5>
+      <p className="cardTitle">{singleProduct.title}</p>
+      <Button variant="contained" color="secondary">
+        Favourite
+      </Button>
+    </Paper>
   );
 }

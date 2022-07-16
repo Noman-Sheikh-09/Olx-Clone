@@ -27,11 +27,11 @@ export default function AddPage() {
       setLocation,
       category,
       setCategory,
-      categoryHandle,
-      locationHandler,
+      fileHandler,
+      ctaPostHandler
     },
   ] = UseAddPage();
-console.log(title,description,location,category,price);
+  // console.log(title, description, location, category, price);
   return (
     <div>
       <div>
@@ -60,21 +60,19 @@ console.log(title,description,location,category,price);
               labelId="demo-simple-select-standard-label"
               id="demo-simple-select-standard"
               value={category}
-              onChange={categoryHandle}
+              onChange={(e) => setCategory(e.target.value)}
             >
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
-              <MenuItem>Vehicles</MenuItem>
-              <MenuItem>Animals</MenuItem>
-              <MenuItem>Lcd</MenuItem>
-              <MenuItem>Property</MenuItem>
-              <MenuItem>House</MenuItem>
-              <MenuItem>Animals</MenuItem>
-              <MenuItem>Laptop</MenuItem>
-              <MenuItem>Mobile Phone </MenuItem>
-              <MenuItem>Watch </MenuItem>
-
+              <MenuItem value="Vehicles">Vehicles</MenuItem>
+              <MenuItem value="Animals">Animals</MenuItem>
+              <MenuItem value="Lcd">Lcd</MenuItem>
+              <MenuItem value="Property">Property</MenuItem>
+              <MenuItem value="House">House</MenuItem>
+              <MenuItem value="Laptop">Laptop</MenuItem>
+              <MenuItem value="Mobile Phone">Mobile Phone </MenuItem>
+              <MenuItem value="Watch">Watch </MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -95,7 +93,6 @@ console.log(title,description,location,category,price);
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-         
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
           <FormControl
@@ -108,27 +105,27 @@ console.log(title,description,location,category,price);
             <Select
               labelId="demo-simple-select-standard-label"
               id="demo-simple-select-standard"
-              value={Location}
-              onChange={locationHandler}
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
             >
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
-              <MenuItem>Faisalabad</MenuItem>
-              <MenuItem>Lahore</MenuItem>
-              <MenuItem>Karachi</MenuItem>
-            
+              <MenuItem value="Faisalabad">Faisalabad</MenuItem>
+              <MenuItem value="Lahore">Lahore</MenuItem>
+              <MenuItem value="Karachi">Karachi</MenuItem>
+              <MenuItem value="Islamabad">Islamabad</MenuItem>
             </Select>
           </FormControl>
         </Grid>
         <Grid item md={12} align="left" sx={{ marginLeft: "80px" }}>
           <p>Choose Picture</p>
-          <input type="file" />
+          <input type="file" onChange={fileHandler} />
           <br />
           <br />
           <br />
 
-          <Button variant="contained" color="inherit" className="postBtn">
+          <Button variant="contained" color="inherit" className="postBtn" onClick={ctaPostHandler}>
             Post
           </Button>
         </Grid>

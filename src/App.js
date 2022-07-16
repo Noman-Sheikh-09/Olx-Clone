@@ -6,7 +6,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
    dispatch(doGetActiveUser())
-  }, [])
+  })
   
   return (
     <div className="App">

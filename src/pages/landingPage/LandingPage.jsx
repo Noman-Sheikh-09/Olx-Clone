@@ -3,8 +3,9 @@ import Header from '../../components/header/Header'
 import Navbar from '../../components/navbar/Navbar'
 import Banner from '../../assets/banner.png'
 import './LandingPageStyle.css';
-import ProductCard from '../../components/productCard/ProductCard';
+// import { ToastContainer } from 'react-toastify';
 import { Grid } from '@mui/material';
+import AllProducts from '../../components/allProducts/AllProducts';
 export default function LandingPage() {
   return (
     <div>
@@ -13,11 +14,11 @@ export default function LandingPage() {
     <br />
     <img src={Banner} alt="Banner" className='bannerimg'/>
     <br />
-   {/* <Grid container align="center">
-    
-<Grid item xs={6} sm={12} md={3} lg={3}>
-</Grid>
-    </Grid> */}
+    <Grid>
+      
+    </Grid>
+  <AllProducts />
+    {/* <ToastContainer /> */}
     </div>
   )
 }

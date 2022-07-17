@@ -6,18 +6,27 @@ import './LandingPageStyle.css';
 // import { ToastContainer } from 'react-toastify';
 import { Grid } from '@mui/material';
 import AllProducts from '../../components/allProducts/AllProducts';
+import { Container } from '@mui/system';
 export default function LandingPage() {
   return (
     <div>
     
-    <Navbar style={{minWidth:500}} />
+    
     <br />
     <img src={Banner} alt="Banner" className='bannerimg'/>
     <br />
-    <Grid>
-      
+    <Container>
+    <Grid container spacing={2}>
+    <Grid item xs={12} sm={12}>
+<h2>Fresh Recommended</h2>
     </Grid>
-  <AllProducts />
+
+      <Grid item xs={12} sm={12} >
+      <AllProducts />
+
+      </Grid>
+    </Grid>
+    </Container>
     {/* <ToastContainer /> */}
     </div>
   )

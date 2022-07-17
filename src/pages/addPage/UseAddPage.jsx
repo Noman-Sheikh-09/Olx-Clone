@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-// import { toast } from "react-toastify";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux/es/exports";
 import { postProduct } from "../../store/actions/ProductAction";
 export default function UseAddPage() {
@@ -16,21 +15,17 @@ export default function UseAddPage() {
   const [image, setImage] = useState("");
   const dispatch = useDispatch();
 
+useEffect(() => {
+ setNumber(Math.random()*100000000)
+},[])
+
+
+
 const fileHandler=(e)=>{
 setFile(e.target.files[0])
 setFileName(e.targe.fileName[0].name+number)
 }
 
-
-// const notify = () =>toast.success('🦄 Successfully Posted!', {
-//   position: "top-right",
-//   autoClose: 3000,
-//   hideProgressBar: false,
-//   closeOnClick: true,
-//   pauseOnHover: false,
-//   draggable: true,
-//   progress: undefined,
-//   });;
 
 const ctaPostHandler =()=>{
 

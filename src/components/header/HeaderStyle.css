@@ -28,9 +28,11 @@
   border-radius: 5px;
 }
 .logo {
-  color: black;
+  color: #002f34;
   text-decoration: none;
   font-size: 30px;
+  
+
 }
 .loginLink {
   color: #002f34;

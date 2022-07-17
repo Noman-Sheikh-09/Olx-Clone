@@ -48,15 +48,13 @@ export default function Footer() {
             <div>
               <Grid item xs={6} sm={6} md={2.4} lg={3}>
                 <div>
-
-                <ul style={{ listStyle: "none" }}>
+                <ul style={{ listStyle: "none" ,paddingLeft:'30px'}}>
                   <li>{footerItem.heading}</li>
                   <li>{footerItem.list1}</li>
                   <li>{footerItem.list2}</li>
                   <li>{footerItem.list3}</li>
                 </ul>
                 </div>
-
               </Grid>
             </div>
           );

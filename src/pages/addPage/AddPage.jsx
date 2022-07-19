@@ -28,7 +28,7 @@ export default function AddPage() {
       category,
       setCategory,
       fileHandler,
-      ctaPostHandler
+      ctaPostHandler,
     },
   ] = UseAddPage();
   // console.log(title, description, location, category, price);
@@ -67,12 +67,16 @@ export default function AddPage() {
               </MenuItem>
               <MenuItem value="Vehicles">Vehicles</MenuItem>
               <MenuItem value="Animals">Animals</MenuItem>
-              <MenuItem value="Lcd">Lcd</MenuItem>
-              <MenuItem value="Property">Property</MenuItem>
-              <MenuItem value="House">House</MenuItem>
-              <MenuItem value="Laptop">Laptop</MenuItem>
+              <MenuItem value="Bike">Bike</MenuItem>
+              <MenuItem value="TV/Media">TV/Media</MenuItem>
+              <MenuItem value="Electronics">Electronics</MenuItem>
+              <MenuItem value="House/Plots">House/Plots</MenuItem>
+              <MenuItem value="Computer/Accessories">
+                Computer/Accessories
+              </MenuItem>
               <MenuItem value="Mobile Phone">Mobile Phone </MenuItem>
               <MenuItem value="Watch">Watch </MenuItem>
+              <MenuItem value="Tablets">Tablets</MenuItem>
             </Select>
           </FormControl>
         </Grid>
@@ -120,12 +124,17 @@ export default function AddPage() {
         </Grid>
         <Grid item md={12} align="left" sx={{ marginLeft: "80px" }}>
           <p>Choose Picture</p>
-          <input type="file" onChange={(e)=>fileHandler(e)} />
+          <input type="file" onChange={(e) => fileHandler(e)} />
           <br />
           <br />
           <br />
 
-          <Button variant="contained" color="inherit" className="postBtn" onClick={ctaPostHandler}>
+          <Button
+            variant="contained"
+            color="inherit"
+            className="postBtn"
+            onClick={ctaPostHandler}
+          >
             Post
           </Button>
         </Grid>

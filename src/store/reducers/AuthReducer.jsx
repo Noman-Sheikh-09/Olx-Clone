@@ -27,7 +27,7 @@ export const AuthReducer = (state = initialState, action) => {
       };
     }
     case GET_USER_ON_AUTH_STATE_CHANGE: {
-      console.log('auth reduer get', action.payload);
+      // console.log('auth reduer get', action.payload);
       return {
         ...state,
         isUserLoggedIn: true,

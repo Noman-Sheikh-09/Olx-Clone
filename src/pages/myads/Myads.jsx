@@ -12,10 +12,11 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import "./MyadsStyle.css";
 import { Link } from "react-router-dom";
-// import UseMyds from "./UseMyds";
+import UseMyds from "./UseMyds";
 import { useSelector } from "react-redux";
 import UseAllProducts from "../../components/allProducts/UseAllProducts";
 export default function Myads() {
+  const [{ctaDeleteHandler}] = UseMyds();
   const user = useSelector((state) => state.AuthReducer.user);
   const [{ getProductsArray }] = UseAllProducts();
   const { id: docId } = useParams();
@@ -64,7 +65,7 @@ export default function Myads() {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <button className="dltBtn">
+                    <button className="dltBtn" onClick={()=>ctaDeleteHandler(myad.docId)}>
                       Delete
                     </button>
                     <button color="inherit" className="editBtn">

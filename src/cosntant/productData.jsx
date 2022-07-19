@@ -1,8 +1,0 @@
-export const productData = [
-  {
-    name: " 5 Marla House",
-    Description:
-      "*Features* • A good Option in 125 Sq Yards villa • Bahria Town Karachi Life Style Facilities • Master-Planed Gated Community • 400 ft. Wide Jinnah Avenue ( Inspired by Sheikh Zayad Road) • Commercial Areas • Near Fire Station to • Ultra Modern Shopping Mall and Golf Souk • A Grand Jamia Mosque and a mosque in for each sector • Cricket Stadium and Indoor/Outdoor Sports Facilities • Five Star Hotel • USGA Standard Golf Course • International Theme Park • Dolphin Arena • Bahria Night Safari • Advanced Security &amp; rescue services • Pakistan's Largest shopping Mall • 5-Star international hotel &amp; USGA standard Golf Course • Gold-Class Cinemas • State-of-the-art sports facilities • World-class school, College and International University • International standard Hospital • International Theme Park, play-land and water-rides • Wonders of the world monuments (Eiffel Tower, Taj-Mahal and statue of Liberty) • Landscaped Parks • Community Sports club &amp; zoo • International standard construction &amp; infrastructure • Grid Station &amp; telephone-exchange • Transport system from Bahria Town to city • 100% backup Power (No Load-shedding) • Near Sports City Villa Affordable luxury apartment in Bahria Heights and Bahria Tower Info are also available. We also have some beautiful villas for sale at reasonable price. We provides professional consultancy in Real Estate Projects of Lahore, Karachi, and many others cities in Pakistan. Please consult free With Us for your Property buying and selling need. For any Further information contact me. 0- 3-. 0- 2- 7 __7__8___ 1__1__9__2",
-  },
-  {},
-];

@@ -1,8 +1,8 @@
 import { db, auth, storage } from "../../config/Firebase";
-import { FETCH_PRODUCT } from "../type/Type";
+import { DELETE_PRODUCT, FETCH_PRODUCT, } from "../type/Type";
 
 export const postProduct =
-  (fileName, productData, image, setImage, file, setFile) =>
+  (fileName, productData, image, setImage, file, setFile,navigate) =>
   async (dispatch) => {
     const ref = storage.ref(`/images/${fileName}`);
     const uploadTask = ref.put(file);
@@ -11,6 +11,7 @@ export const postProduct =
       ref.getDownloadURL().then((url) => {
         db.collection("products").add({ ...productData, image: url });
       });
+      navigate.navigate("/")
     });
   };
 
@@ -31,3 +32,20 @@ export const fetchProduct = () => async (dispatch) => {
     console.log(error);
   }
 };
+
+
+export const deleteproduct = (docId) => async (dispatch) => {
+  try {
+  console.log('docId in action',docId);
+    
+   await db.collection("products").doc(docId).delete();
+
+    dispatch({
+      type: DELETE_PRODUCT,
+      payload: docId,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+

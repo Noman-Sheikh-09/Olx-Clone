@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { postProduct } from "../../store/actions/ProductAction";
+import { useNavigate } from "react-router-dom";
+
 export default function UseAddPage() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -14,6 +16,7 @@ export default function UseAddPage() {
   const [userId, setUserId] = useState("");
   const [image, setImage] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const user = useSelector((state) => state.AuthReducer.user);
   console.log("user in use Add", user?.uid);
 
@@ -25,7 +28,7 @@ export default function UseAddPage() {
     setFile(e.target.files[0]);
     setFileName(e.target.files[0].name + number);
   };
- console.log(file);
+
   const ctaPostHandler = () => {
     if (
       title !== "" &&
@@ -44,8 +47,10 @@ export default function UseAddPage() {
       };
 
       dispatch(
-        postProduct(fileName, productData, image, setImage, file, setFile)
+        postProduct(fileName, productData, image, setImage, file, setFile,navigate)
       );
+      
+
     } else {
       alert("Please fill all fields");
     }

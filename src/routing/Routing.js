@@ -9,6 +9,8 @@ import AddPage from "../pages/addPage/AddPage";
 import Footer from "../components/footer/Footer";
 import PrivateRouting from "./PrivateRouting";
 import DetailPage from "../pages/detailPage/DetailPage";
+import Myads from '../pages/myads/Myads'
+import Fvrt from '../pages/fvrt/Fvrt'
 import Navbar from "../components/navbar/Navbar";
 export default function Routing() {
   const isUserLoggedIn = useSelector(
@@ -24,6 +26,8 @@ export default function Routing() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/singleproduct/:id" element={<DetailPage />} />
+          <Route path="/myads" element={<Myads />} />
+          <Route path="/myfvrt" element={<Fvrt />} />
 
           <Route
             path="/add"

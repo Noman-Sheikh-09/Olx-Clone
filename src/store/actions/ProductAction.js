@@ -20,8 +20,7 @@ export const fetchProduct = () => async (dispatch) => {
     const snapShot = await db.collection("products").get();
     snapShot.forEach((productItem) => {
       data.push({ ...productItem.data(), docId: productItem.id });
-    // console.log(snapShot);
-
+      // console.log(snapShot);
     });
 
     dispatch({

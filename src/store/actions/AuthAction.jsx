@@ -13,7 +13,7 @@ export const doLogin = (userData, navigate) => async (dispatch) => {
       userData?.email,
       userData?.password
     );
-
+    // console.log('user login data',user);
     const user = userCredential.user;
     dispatch({
       type: LOGIN,
@@ -52,7 +52,7 @@ export const doGetActiveUser = () => async (dispatch) => {
       if (user) {
         dispatch({
           type: GET_USER_ON_AUTH_STATE_CHANGE,
-          paylaod: user,
+          payload: user,
         });
       }
     });

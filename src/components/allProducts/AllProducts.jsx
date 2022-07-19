@@ -7,9 +7,9 @@ export default function AllProducts() {
   const [{ getProductsArray }] = UseAllProducts();
   return (
     <div>
-      <Grid container align="center">
-        <Grid item xs={6} sm={6} md={3} lg={3}>
-          <Grid container spacing={2}>
+      <Grid container >
+        <Grid  item xs={12} sm={12} lg={12} md={12} >
+          <Grid container spacing={2} >
             {getProductsArray.map((singleProduct) => {
               return (
                 <ProductCard

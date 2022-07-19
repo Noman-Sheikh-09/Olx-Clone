@@ -7,7 +7,7 @@ export default function UseDetailPage() {
   const getProductsArray = useSelector(
     (state) => state.ProductReducers.fetchArray
   );
-  console.log("data in detail page", getProductsArray);
+  // console.log("data in detail page", getProductsArray);
   const { id: docId } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -16,12 +16,9 @@ export default function UseDetailPage() {
 
   const productData = getProductsArray.filter((item) => {
     if (item.docId === docId) {
-     
-
       return item;
     }
   });
-
   return [
     {
       productData,

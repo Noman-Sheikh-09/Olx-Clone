@@ -15,10 +15,8 @@ const ctaLoginHandler=()=>{
     password:password,
   }
   if (email !== "" && password !== "") {
-   
 dispatch(doLogin(userData,navigate))
 console.log("data in handler", userData);
-
   } else {
     alert("All fields are required");
   }

@@ -9,6 +9,7 @@ import { Button, Fade, Box, Paper } from "@mui/material";
 import HelpCenterRoundedIcon from "@mui/icons-material/HelpCenterRounded";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Avatar from "../../assets/avatar.png";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
@@ -61,11 +62,15 @@ export default function Dropdown() {
                   <ListItemButton
                   //   selected={selectedIndex === 0}
                   //   onClick={(event) => handleListItemClick(event, 0)}
+               
                   >
                     <ListItemIcon>
                       <AddIcon />
                     </ListItemIcon>
+                    <Link to="/add" style={{textDecoration:'none',color:'black'}}>
                     <ListItemText primary="Sell Now" />
+
+                    </Link>
                   </ListItemButton>
                   <ListItemButton
                   //   selected={selectedIndex === 1}
@@ -74,7 +79,10 @@ export default function Dropdown() {
                     <ListItemIcon>
                       <SimCardRoundedIcon />
                     </ListItemIcon>
+                    <Link to="/myads" style={{textDecoration:'none',color:'black'}}>
                     <ListItemText primary="My Ads" />
+ 
+                    </Link>
                   </ListItemButton>
                   <ListItemButton
                   //   selected={selectedIndex === 1}
@@ -83,7 +91,10 @@ export default function Dropdown() {
                     <ListItemIcon>
                       <FavoriteBorderRoundedIcon />
                     </ListItemIcon>
+                    <Link to="/myfvrt" style={{textDecoration:'none',color:'black'}}>
                     <ListItemText primary="My Favourite" />
+ 
+                    </Link>
                   </ListItemButton>
                   <ListItemButton
                   //   selected={selectedIndex === 1}

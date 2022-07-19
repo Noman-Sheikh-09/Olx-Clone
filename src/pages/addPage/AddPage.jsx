@@ -120,7 +120,7 @@ export default function AddPage() {
         </Grid>
         <Grid item md={12} align="left" sx={{ marginLeft: "80px" }}>
           <p>Choose Picture</p>
-          <input type="file" onChange={fileHandler} />
+          <input type="file" onChange={(e)=>fileHandler(e)} />
           <br />
           <br />
           <br />

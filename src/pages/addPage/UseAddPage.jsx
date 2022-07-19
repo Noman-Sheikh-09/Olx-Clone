@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux/es/exports";
 import { postProduct } from "../../store/actions/ProductAction";
 export default function UseAddPage() {
   const [title, setTitle] = useState("");
@@ -14,40 +14,42 @@ export default function UseAddPage() {
   const [userId, setUserId] = useState("");
   const [image, setImage] = useState("");
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.AuthReducer.user);
+  console.log("user in use Add", user?.uid);
 
-useEffect(() => {
- setNumber(Math.random()*100000000)
-},[])
+  useEffect(() => {
+    setNumber(Math.random() * 100000000);
+  }, []);
 
+  const fileHandler = (e) => {
+    setFile(e.target.files[0]);
+    setFileName(e.target.files[0].name + number);
+  };
+ console.log(file);
+  const ctaPostHandler = () => {
+    if (
+      title !== "" &&
+      description !== "" &&
+      price !== "" &&
+      category !== "" &&
+      location !== ""
+    ) {
+      let productData = {
+        title: title,
+        description: description,
+        price: price,
+        location: location,
+        category: category,
+        userId: user?.uid,
+      };
 
-
-const fileHandler=(e)=>{
-setFile(e.target.files[0])
-setFileName(e.targe.fileName[0].name+number)
-}
-
-
-const ctaPostHandler =()=>{
-
-  if(title!=='' && description!=='' && price!=='' && category!=='' && location!=='' ){
-    let productData = {
-      title:title,
-      description:description,
-      price:price,
-      location:location,
-      category:category,
-      userId:userId,
-        }
-        
-dispatch(postProduct(fileName,productData,image,setImage,file,setFile))
-
-}
-else{
-    alert("Please fill all fields")
-}
-}
- 
-
+      dispatch(
+        postProduct(fileName, productData, image, setImage, file, setFile)
+      );
+    } else {
+      alert("Please fill all fields");
+    }
+  };
 
   return [
     {
@@ -60,8 +62,13 @@ else{
       location,
       setLocation,
       category,
-      setCategory,fileHandler,
-      file,setFile,fileName,setFileName,ctaPostHandler
+      setCategory,
+      fileHandler,
+      file,
+      setFile,
+      fileName,
+      setFileName,
+      ctaPostHandler,
     },
   ];
 }

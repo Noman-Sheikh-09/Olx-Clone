@@ -6,6 +6,7 @@ import UseDetailPage from "./UseDetailPage";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 export default function DetailPage() {
   const [{ productData }] = UseDetailPage();
+  
    
   return (
     <div>

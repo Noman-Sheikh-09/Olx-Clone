@@ -20,10 +20,6 @@ export default function Myads() {
   const user = useSelector((state) => state.AuthReducer.user);
   const [{ getProductsArray }] = UseAllProducts();
   const { id: docId } = useParams();
-
-  // console.log("uid in myads ", user?.uid);
-  //   console.log("user in myads ", user);
-  // console.log("data in myads", getProductsArray);
   const myads = getProductsArray?.filter((row) => {
     if (row?.userId === user?.uid) {
       return row;
@@ -57,10 +53,10 @@ export default function Myads() {
                   
 
                   <CardContent>
-                    <Typography variant="h5" component="div">
+                    <Typography variant="h5" component="div" className="textEllips">
                       Rs. {myad.price}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary"  className="textEllips">
                       {myad.title}
                     </Typography>
                   </CardContent>
@@ -68,9 +64,12 @@ export default function Myads() {
                     <button className="dltBtn" onClick={()=>ctaDeleteHandler(myad.docId)}>
                       Delete
                     </button>
+                    <Link to={`/edit/${myad.docId}`}>
                     <button color="inherit" className="editBtn">
                       Edit
                     </button>
+                    </Link>
+                    
                   </CardActions>
                 </Card>
           

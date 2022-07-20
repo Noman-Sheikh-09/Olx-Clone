@@ -46,7 +46,7 @@ export const doSignup = (newUserData, navigate) => async (dispatch) => {
   }
 };
 
-export const doGetActiveUser = () => async (dispatch) => {
+export const doGetActiveUser = (setPending) => async (dispatch) => {
   try {
     auth.onAuthStateChanged((user) => {
       if (user) {

@@ -18,7 +18,7 @@ export default function UseAddPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.AuthReducer.user);
-  console.log("user in use Add", user?.uid);
+  // console.log("user in use Add", user?.uid);
 
   useEffect(() => {
     setNumber(Math.random() * 100000000);

@@ -34,3 +34,8 @@
   color: #002f34;
   border: 1px solid rgb(196, 194, 194);
 }
+.textEllips{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

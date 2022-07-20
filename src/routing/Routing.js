@@ -22,6 +22,8 @@ import Watch from "../components/categories/Watch";
 import Phone from "../components/categories/Phone";
 import Computer from "../components/categories/Computer";
 import Animals from "../components/categories/Animals";
+import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
+import EditPage from "../pages/editPage/EditPage";
 export default function Routing() {
   const isUserLoggedIn = useSelector(
     (state) => state.AuthReducer.isUserLoggedIn
@@ -31,6 +33,7 @@ export default function Routing() {
       <BrowserRouter>
         <Header />
         <Navbar style={{ minWidth: 500 }} />
+        <MobileNavbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
@@ -38,6 +41,7 @@ export default function Routing() {
           <Route path="/singleproduct/:id" element={<DetailPage />} />
           <Route path="/myads" element={<Myads />} />
           <Route path="/myfvrt" element={<Fvrt />} />
+          <Route path="/edit/:docId" element={<EditPage />} />
           <Route path="/bike" element={<Bike />} />
           <Route path="/tv-media" element={<TvMedia />} />
           <Route path="/tablet" element={<Tablet />} />

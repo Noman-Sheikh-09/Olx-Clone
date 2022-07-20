@@ -6,13 +6,19 @@ import {
   CardMedia,
   Grid,
 } from "@mui/material";
+import {useSelector} from 'react-redux'
 import { Link } from "react-router-dom";
 import React from "react";
-
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import "./ProductCardStyle.css";
+import UseFvrt from "../../pages/fvrt/UseFvrt";
 
 export default function ProductCard({ singleProduct }) {
+  const [{favButtonHandler, 
+    setFavLoading, 
+    setUnFavLoading}]= UseFvrt();
+
+
   return (
     <>
     
@@ -34,9 +40,13 @@ export default function ProductCard({ singleProduct }) {
           </Typography>
         </CardContent>
         <CardActions>
-          <button className="fvrtBtn">
+        
+            <button className="fvrtBtn" onClick={()=>favButtonHandler(singleProduct)} >
             <FavoriteBorderIcon fontSize="30" /> &nbsp; Favourite
           </button>
+          
+          
+          
         </CardActions>
       </Card>
     </>

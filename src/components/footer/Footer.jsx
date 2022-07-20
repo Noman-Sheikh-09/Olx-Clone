@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Grid, Container } from "@mui/material";
 import React from "react";
 import "./FooterStyle.css";
 import { Link } from "react-router-dom";
@@ -41,25 +41,42 @@ export default function Footer() {
     },
   ];
   return (
-    <div>
-      <Grid container spacing={2} className="footerContainer">
-        {footerData.map((footerItem) => {
-          return (
-            <div>
-              <Grid item xs={6} sm={6} md={2.4} lg={3}>
+    <>
+    <div className="footerContainer">
+      <Container>
+        <div style={{ flexGrow: 1 }}>
+          <Grid container spacing={3}>
+            {footerData.map((footerItem) => {
+              return (
                 <div>
-                <ul style={{ listStyle: "none" ,paddingLeft:'30px'}}>
-                  <li>{footerItem.heading}</li>
-                  <li>{footerItem.list1}</li>
-                  <li>{footerItem.list2}</li>
-                  <li>{footerItem.list3}</li>
-                </ul>
+                  <Grid container spacing={2}>
+                    <Grid item xs={6} sm={6} md={3} lg={3}>
+                      <ul className="footerList">
+                        <h4>
+                          <li>{footerItem.heading}</li>
+                        </h4>
+                        <div className="footerText">
+                          <li>{footerItem.list1}</li>
+                          <li>{footerItem.list2}</li>
+                          <li>{footerItem.list3}</li>
+                        </div>
+                      </ul>
+                    </Grid>
+                  </Grid>
                 </div>
-              </Grid>
-            </div>
-          );
-        })}
-      </Grid>
+              );
+            })}
+          </Grid>
+        </div>
+      </Container>
+        
+        
     </div>
+    {/* copyight section  */}
+
+    <div className="copyrightSection">
+<h6 style={{color:'white'}}>Free Classifieds in Pakistan</h6> <small style={{color:'white'}}> . © 2006-2022 OLX    &nbsp; &nbsp;</small>
+</div>
+    </>
   );
 }

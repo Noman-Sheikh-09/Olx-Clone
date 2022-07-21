@@ -31,3 +31,16 @@ try {
     
 }
 }
+
+
+export const UnFavProduct =(favDocId)=>async(dispatch)=>{
+    try {
+        await db.collection("Favourites").doc(favDocId).delete()
+        dispatch({
+            type:DELETE_FAVOURITE,
+            payload:favDocId
+        })
+    } catch (error) {
+        
+    }
+}

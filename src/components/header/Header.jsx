@@ -5,6 +5,8 @@ import {
   Select,
   MenuItem,
   Button,
+  Container,
+  InputLabel,
 } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -32,6 +34,9 @@ export default function Header() {
   return (
     <div>
       <div className="headerContainer">
+     
+        
+     
         <div className="logoContainer">
           <Hidden mdUp>
             <LeftDrawer />
@@ -42,12 +47,13 @@ export default function Header() {
         </div>
 
         <div className="locBox">
-          <TextField placeholder="Location"/>
+          
 
           <Select>
-            <MenuItem value={10}>Faisalbad</MenuItem>
-            <MenuItem value={20}>Karachi</MenuItem>
-            <MenuItem value={30}>Lahore</MenuItem>
+            <MenuItem value="Faisalabad">Faisalbad</MenuItem>
+            <MenuItem value="Karachi">Karachi</MenuItem>
+            <MenuItem value="Lahore">Lahore</MenuItem>
+            <MenuItem value="Islamabad">Islamabad</MenuItem>
           </Select>
         </div>
         <div className="searchBox">
@@ -70,6 +76,7 @@ export default function Header() {
             </Link>
           </Box>
         </div>
+        
         {userAuth ? (
           <Dropdown />
         ) : (
@@ -81,7 +88,10 @@ export default function Header() {
         <Link to="/add" className="sellLink">
           <h5 style={{ marginTop: "5px" }}>+SELL</h5>
         </Link>
+         
+      
       </div>
+
     </div>
   );
 }

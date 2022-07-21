@@ -4,7 +4,7 @@ import ProductCard from "../productCard/ProductCard";
 import UseAllProducts from "./UseAllProducts";
 
 export default function AllProducts() {
-  const [{ getProductsArray }] = UseAllProducts();
+  const [{ getProductsArray,getFavProductsArray ,}] = UseAllProducts();
   return (
     <div>
       <Grid container >

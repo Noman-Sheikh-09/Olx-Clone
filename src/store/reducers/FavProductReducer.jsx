@@ -1,11 +1,11 @@
-import {FAV_PRODUCT,UNFAV_PRODUCT,GET_FAVOURITE} from "../type/Type";
+import {ADD_FAVOURITE,DELETE_FAVOURITE,GET_FAVOURITE} from "../type/Type";
 const initialState = {
     favProducts:[]
 }
 
 export const FavProductReducer = (state=initialState,action)=>{
     switch (action.type) {
-        case FAV_PRODUCT:
+        case ADD_FAVOURITE:
             let newData = state.favProducts;
             newData.push(action.payload)
             return {
@@ -13,11 +13,17 @@ export const FavProductReducer = (state=initialState,action)=>{
                 favProducts: newData,
             }
             case GET_FAVOURITE:
-           console.log('get fvrt',action.payload);
+        //    console.log('get fvrt',action.payload);
             return {
                 ...state,
                 favProducts: action.payload,
             }
+            case DELETE_FAVOURITE:
+                let filterFvrtProducts = state.favProducts.filter((item)=> item.favDocId !== action.payload)
+                    return {
+                        ...state,
+                        favProducts: filterFvrtProducts,
+                    }
         default:
             return state;
     }

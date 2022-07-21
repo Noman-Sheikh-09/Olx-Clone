@@ -23,10 +23,13 @@ const handleDrawerClose = ()=>{
 
   return (
     <>
+    
+
+   
     <div style={{marginTop:'12px'}}>
         <MenuIcon size={30} onClick={handleDrawerOpen} />
         </div>
-
+     
         <Drawer className='drawerPaper'
             variant="persistent"
             anchor="left"
@@ -37,6 +40,7 @@ const handleDrawerClose = ()=>{
             </div>
           
         </Drawer>
+     
     </>
     
   )

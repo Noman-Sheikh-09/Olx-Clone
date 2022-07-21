@@ -12,11 +12,15 @@ import React from "react";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import "./ProductCardStyle.css";
 import UseFvrt from "../../pages/fvrt/UseFvrt";
+import UseAllProducts from "../allProducts/UseAllProducts";
 
 export default function ProductCard({ singleProduct }) {
+const user = useSelector(state=>state.AuthReducer.user)
+// console.log('user in card', user);
   const [{favButtonHandler, 
     setFavLoading, 
-    setUnFavLoading}]= UseFvrt();
+    setUnFavLoading,unFavButtonHandler}]= UseFvrt();
+const [{getFavProductsArray,getProductsArray,userId}]= UseAllProducts()
 
 
   return (
@@ -40,13 +44,17 @@ export default function ProductCard({ singleProduct }) {
           </Typography>
         </CardContent>
         <CardActions>
-        
-            <button className="fvrtBtn" onClick={()=>favButtonHandler(singleProduct)} >
-            <FavoriteBorderIcon fontSize="30" /> &nbsp; Favourite
-          </button>
-          
-          
-          
+        {
+singleProduct.favUid == user?.uid?
+
+<button className="unfvrtBtn" onClick={()=>unFavButtonHandler(singleProduct.favDocId)} >
+<FavoriteBorderIcon fontSize="30" /> &nbsp; UnFavourite
+</button>
+:
+<button className="fvrtBtn" onClick={()=>favButtonHandler(singleProduct)} >
+<FavoriteBorderIcon fontSize="30" /> &nbsp; Favourite
+</button>
+        }  
         </CardActions>
       </Card>
     </>

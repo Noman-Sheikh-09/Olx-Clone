@@ -25,7 +25,6 @@ const [{getFavProductsArray,getProductsArray,userId}]= UseAllProducts()
 
   return (
     <>
-    
       <Card className="cardWrapper">
         <Link to={`/singleProduct/${singleProduct.docId}`}>
           <CardMedia

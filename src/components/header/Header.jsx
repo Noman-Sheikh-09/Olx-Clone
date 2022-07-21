@@ -35,10 +35,10 @@ export default function Header() {
     <div>
       <div className="headerContainer">
      
-        
+   
      
         <div className="logoContainer">
-          <Hidden mdUp>
+        <Hidden mdUp>
             <LeftDrawer />
           </Hidden>
           <Link to="/" className="logoLink">

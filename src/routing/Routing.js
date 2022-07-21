@@ -8,6 +8,7 @@ import { useSelector } from "react-redux/es/exports";
 import AddPage from "../pages/addPage/AddPage";
 import Footer from "../components/footer/Footer";
 import PrivateRouting from "./PrivateRouting";
+import PublicRouting from "./PublicRouting";
 import DetailPage from "../pages/detailPage/DetailPage";
 import Myads from "../pages/myads/Myads";
 import Fvrt from "../pages/fvrt/Fvrt";
@@ -24,6 +25,7 @@ import Computer from "../components/categories/Computer";
 import Animals from "../components/categories/Animals";
 import MobileNavbar from "../components/MobileNavbar/MobileNavbar";
 import EditPage from "../pages/editPage/EditPage";
+import ErrorPage from "../pages/errorPage/ErrorPage";
 export default function Routing() {
   const isUserLoggedIn = useSelector(
     (state) => state.AuthReducer.isUserLoggedIn
@@ -36,12 +38,12 @@ export default function Routing() {
         <MobileNavbar />
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<Login />} />
+
+          <Route path="/login" element={<PublicRouting isUserLoggedIn={isUserLoggedIn}><Login /></PublicRouting>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/singleproduct/:id" element={<DetailPage />} />
-          <Route path="/myads" element={<Myads />} />
-          <Route path="/myfvrt" element={<Fvrt />} />
-          <Route path="/edit/:docId" element={<EditPage />} />
+        
+         
           <Route path="/bike" element={<Bike />} />
           <Route path="/tv-media" element={<TvMedia />} />
           <Route path="/tablet" element={<Tablet />} />
@@ -60,8 +62,22 @@ export default function Routing() {
               </PrivateRouting>
             }
           />
-        </Routes>
+        
+            <Route path="/myads" element={  <PrivateRouting isUserLoggedIn={isUserLoggedIn}>
+              <Myads />
+            </PrivateRouting>} />
 
+
+
+            <Route path="/myfvrt" element={<PrivateRouting isUserLoggedIn={isUserLoggedIn}>
+              <Fvrt />
+            </PrivateRouting>} />
+          <Route path="/edit/:docId" element={<PrivateRouting isUserLoggedIn={isUserLoggedIn}>
+            <EditPage />
+          </PrivateRouting>} />
+          <Route path="*" element={<ErrorPage />} />
+
+        </Routes>
         <br />
         <br />
         <br />

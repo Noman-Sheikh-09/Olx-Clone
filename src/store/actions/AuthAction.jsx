@@ -36,6 +36,7 @@ export const doSignup = (newUserData, navigate) => async (dispatch) => {
 
     const dbData = await db.collection("users").add(newUserData);
     console.log("dbData", dbData);
+    
     dispatch({
       type: SIGNUP,
       payload: userData,

@@ -11,7 +11,7 @@ export const postProduct =
       ref.getDownloadURL().then((url) => {
         db.collection("products").add({ ...productData, image: url });
       });
-      
+      navigate('/')
     });
   };
 
@@ -50,7 +50,7 @@ export const deleteproduct = (docId) => async (dispatch) => {
 };
 
 
-export const updateProduct = (fileName,productData,file,setFile,image,setImage,docId)=> async (dispatch)=>{
+export const updateProduct = (fileName,productData,file,setFile,image,setImage,docId,navigate)=> async (dispatch)=>{
   try {
     const ref = storage.ref(`/images/${fileName}`);
     const uploadTask = ref.put(file);
@@ -59,7 +59,7 @@ export const updateProduct = (fileName,productData,file,setFile,image,setImage,d
       ref.getDownloadURL().then((url) => {
        db.collection("products").doc(docId).update(({...productData,image:url}))
       });
-      
+      navigate('/')
     });
   } catch (error) {
     

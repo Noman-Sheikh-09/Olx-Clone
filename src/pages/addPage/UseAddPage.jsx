@@ -29,6 +29,8 @@ export default function UseAddPage() {
     setFileName(e.target.files[0].name + number);
   };
 
+  
+
   const ctaPostHandler = () => {
     if (
       title !== "" &&
@@ -47,10 +49,17 @@ export default function UseAddPage() {
       };
 
       dispatch(
-        postProduct(fileName, productData, image, setImage, file, setFile,navigate)
+        postProduct(
+          fileName,
+          productData,
+          image,
+          setImage,
+          file,
+          setFile,
+          navigate
+        )
       );
-      
-
+  //  navigate('/')
     } else {
       alert("Please fill all fields");
     }

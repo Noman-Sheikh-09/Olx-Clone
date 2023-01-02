@@ -16,10 +16,12 @@ import { Link } from "react-router-dom";
 import UseMyds from "./UseMyds";
 import { useSelector } from "react-redux";
 import UseAllProducts from "../../components/allProducts/UseAllProducts";
+import CommonHooks from "../../commonHooks/CommonHooks";
 export default function Myads() {
   const [{ ctaDeleteHandler }] = UseMyds();
   const user = useSelector((state) => state.AuthReducer.user);
   const [{ getProductsArray }] = UseAllProducts();
+  const [{visible,loadMore}] = CommonHooks();
   const { id: docId } = useParams();
   const myads = getProductsArray?.filter((row) => {
     if (row?.userId === user?.uid) {
@@ -34,7 +36,7 @@ export default function Myads() {
         <h1>My Ads</h1>
         <Grid item xs={12} sm={12} md={12} lg={12}>
           <Grid container spacing={2}>
-            {myads.map((myad) => {
+            {myads.slice(0,visible).map((myad) => {
               return (
                 <Card className="cardWrapper">
                   <Link to={`/detail/${myad.docId}`}>
@@ -80,6 +82,14 @@ export default function Myads() {
             })}
           </Grid>
         </Grid>
+        {
+        visible+1<myads.length?
+        <Button variant="contained" onClick={loadMore} style={{backgroundColor:'rgb(0, 47, 52)',color:'white',textAlign:'center',marginLeft:'40%', marginTop:'30px'}}>
+          Load More
+        </Button>
+        :
+        null
+      }
       </Container>
     </div>
   );

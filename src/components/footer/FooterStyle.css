@@ -3,6 +3,8 @@
     height: auto;
     padding: 20px;
     margin-top: 20px;
+    display: flex;
+justify-content: space-between;
 }
 .footerData{
     display: inline-flex !important;

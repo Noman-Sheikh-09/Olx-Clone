@@ -1,7 +1,5 @@
 import React from "react";
-import Header from "../../components/header/Header";
-import Navbar from "../../components/navbar/Navbar";
-import Banner from "../../assets/ban.jpg";
+import Banner from "../../assets/banner.png";
 import "./LandingPageStyle.css";
 // import { ToastContainer } from 'react-toastify';
 import { Grid } from "@mui/material";

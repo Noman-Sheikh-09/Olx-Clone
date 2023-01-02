@@ -39,11 +39,17 @@ export default function Routing() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
 
-          <Route path="/login" element={<PublicRouting isUserLoggedIn={isUserLoggedIn}><Login /></PublicRouting>} />
+          <Route
+            path="/login"
+            element={
+              <PublicRouting isUserLoggedIn={isUserLoggedIn}>
+                <Login />
+              </PublicRouting>
+            }
+          />
           <Route path="/signup" element={<Signup />} />
           <Route path="/singleproduct/:id" element={<DetailPage />} />
-        
-         
+
           <Route path="/bike" element={<Bike />} />
           <Route path="/tv-media" element={<TvMedia />} />
           <Route path="/tablet" element={<Tablet />} />
@@ -62,21 +68,33 @@ export default function Routing() {
               </PrivateRouting>
             }
           />
-        
-            <Route path="/myads" element={  <PrivateRouting isUserLoggedIn={isUserLoggedIn}>
-              <Myads />
-            </PrivateRouting>} />
 
+          <Route
+            path="/myads"
+            element={
+              <PrivateRouting isUserLoggedIn={isUserLoggedIn}>
+                <Myads />
+              </PrivateRouting>
+            }
+          />
 
-
-            <Route path="/myfvrt" element={<PrivateRouting isUserLoggedIn={isUserLoggedIn}>
-              <Fvrt />
-            </PrivateRouting>} />
-          <Route path="/edit/:docId" element={<PrivateRouting isUserLoggedIn={isUserLoggedIn}>
-            <EditPage />
-          </PrivateRouting>} />
+          <Route
+            path="/myfvrt"
+            element={
+              <PrivateRouting isUserLoggedIn={isUserLoggedIn}>
+                <Fvrt />
+              </PrivateRouting>
+            }
+          />
+          <Route
+            path="/edit/:docId"
+            element={
+              <PrivateRouting isUserLoggedIn={isUserLoggedIn}>
+                <EditPage />
+              </PrivateRouting>
+            }
+          />
           <Route path="*" element={<ErrorPage />} />
-
         </Routes>
         <br />
         <br />

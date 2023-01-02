@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateProduct } from "../../store/actions/ProductAction";
+import { useNavigate } from "react-router-dom";
 
 export default function UseEditPage() {
   const [title, setTitle] = useState("");
@@ -17,7 +18,7 @@ export default function UseEditPage() {
   const [image, setImage] = useState("");
 
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   useEffect(() => {
     setNumber(Math.random() * 100000000);
   }, []);
@@ -38,8 +39,8 @@ export default function UseEditPage() {
       userId,
     };
     // console.log(productData);
-    dispatch(updateProduct(fileName,productData,file,setFile,image,setImage,docId))
-   
+    dispatch(updateProduct(fileName,productData,file,setFile,image,setImage,docId,navigate))
+   navigate('/')
   }
   else{
 alert("Please Fill all feilds")

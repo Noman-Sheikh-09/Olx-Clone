@@ -22,33 +22,18 @@ export default function Header() {
   const [search, setSearch] = useState("");
   const [location, setLocation] = useState("");
 
-  let searchData = "";
-  for (let i = 0; i < search.length; i++) {
-    if (search[i] != " ") {
-      searchData += search[i];
-    } else if (search[i] == " ") {
-      searchData = searchData + "-";
-    }
-  }
-
   return (
     <div>
       <div className="headerContainer">
-     
-   
-     
         <div className="logoContainer">
-        <Hidden mdUp>
+          <Hidden mdUp>
             <LeftDrawer />
           </Hidden>
           <Link to="/" className="logoLink">
             <img src={Logo} alt="" className="logo" />
           </Link>
         </div>
-
         <div className="locBox">
-          
-
           <Select>
             <MenuItem value="Faisalabad">Faisalbad</MenuItem>
             <MenuItem value="Karachi">Karachi</MenuItem>
@@ -71,12 +56,11 @@ export default function Header() {
               type="search"
               onChange={(e) => setSearch(e.target.value)}
             />
-            <Link to={`/${searchData}`} sx={{ textDecoration: "none" }}>
+            <Link to={`/${search}`} sx={{ textDecoration: "none" }}>
               <SearchIcon className="searcIcon" />
             </Link>
           </Box>
         </div>
-        
         {userAuth ? (
           <Dropdown />
         ) : (
@@ -84,14 +68,10 @@ export default function Header() {
             <h5>Login</h5>
           </Link>
         )}
-
         <Link to="/add" className="sellLink">
           <h5 style={{ marginTop: "5px" }}>+SELL</h5>
         </Link>
-         
-      
       </div>
-
     </div>
   );
 }

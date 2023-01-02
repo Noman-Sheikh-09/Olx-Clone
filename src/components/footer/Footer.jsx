@@ -42,41 +42,48 @@ export default function Footer() {
   ];
   return (
     <>
-    <div className="footerContainer">
-      <Container>
-        <div style={{ flexGrow: 1 }}>
-          <Grid container spacing={3}>
-            {footerData.map((footerItem) => {
-              return (
-                <div>
-                  <Grid container spacing={2}>
-                    <Grid item xs={6} sm={6} md={3} lg={3}>
-                      <ul className="footerList">
-                        <h4>
-                          <li>{footerItem.heading}</li>
-                        </h4>
-                        <div className="footerText">
-                          <li>{footerItem.list1}</li>
-                          <li>{footerItem.list2}</li>
-                          <li>{footerItem.list3}</li>
-                        </div>
-                      </ul>
-                    </Grid>
-                  </Grid>
-                </div>
-              );
-            })}
-          </Grid>
-        </div>
-      </Container>
-        
-        
-    </div>
-    {/* copyight section  */}
+      <div className="footerContainer">
+        <Container>
+          <div style={{ flexGrow: 1 }}>
+            <Grid container spacing={3}>
+              {footerData.map((footerItem) => {
+                return (
+                  <div>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} sm={12} md={12} lg={12}>
+                        <ul className="footerList">
+                    
 
-    <div className="copyrightSection">
-<h6 style={{color:'white'}}>Free Classifieds in Pakistan</h6> <small style={{color:'white'}}> . © 2006-2022 OLX    &nbsp; &nbsp;</small>
-</div>
+                          <h4>
+                            <li>{footerItem.heading}</li>
+                          </h4>
+                          <div className="footerText">
+                            <li>{footerItem.list1}</li>
+                            <li>{footerItem.list2}</li>
+                            <li>{footerItem.list3}</li>
+                            <li>{footerItem.list4}</li>
+                            
+                          </div>
+                         
+                        </ul>
+                      </Grid>
+                    </Grid>
+                  </div>
+                );
+              })}
+            </Grid>
+          </div>
+        </Container>
+      </div>
+      {/* copyight section  */}
+
+      <div className="copyrightSection">
+        <h6 style={{ color: "white" }}>Free Classifieds in Pakistan</h6>{" "}
+        <small style={{ color: "white" }}>
+          {" "}
+          . © 2006-2022 OLX &nbsp; &nbsp;
+        </small>
+      </div>
     </>
   );
 }

@@ -16,7 +16,7 @@ import UseAllProducts from "../allProducts/UseAllProducts";
 
 export default function ProductCard({ singleProduct }) {
 const user = useSelector(state=>state.AuthReducer.user)
-// console.log('user in card', user);
+const authState = useSelector(state=>state.AuthReducer.isUserLoggedIn)
   const [{favButtonHandler, 
     setFavLoading, 
     setUnFavLoading,unFavButtonHandler}]= UseFvrt();
@@ -42,8 +42,9 @@ const [{getFavProductsArray,getProductsArray,userId}]= UseAllProducts()
             {singleProduct.title}
           </Typography>
         </CardContent>
-        <CardActions>
-        {
+       {authState?
+ <CardActions>
+ {
 singleProduct.favUid == user?.uid?
 
 <button className="unfvrtBtn" onClick={()=>unFavButtonHandler(singleProduct.favDocId)} >
@@ -53,8 +54,18 @@ singleProduct.favUid == user?.uid?
 <button className="fvrtBtn" onClick={()=>favButtonHandler(singleProduct)} >
 <FavoriteBorderIcon fontSize="30" /> &nbsp; Favourite
 </button>
-        }  
-        </CardActions>
+ }  
+ </CardActions>
+      : 
+      <CardActions>
+      <button className="disableBtn" disabled><FavoriteBorderIcon fontSize="30" /> &nbsp; Favourite</button>
+    </CardActions>
+      }
+       
+       
+       
+                    <small style={{lineHeight:'0px'}}>{singleProduct.location}</small>
+                
       </Card>
     </>
   );

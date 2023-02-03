@@ -6,7 +6,7 @@ import NavDropdown from './NavDropdown';
 export default function Navbar() {
   return (
     <div>
-          <Hidden smDown>
+          <Hidden mdDown>
           <div className='navbarSection'> 
 <NavDropdown />
                 <ul className='navList'>

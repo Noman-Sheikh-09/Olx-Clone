@@ -12,11 +12,17 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./HeaderStyle.css";
 import { useSelector } from "react-redux";
-import { Hidden } from "@mui/material";
+import {
+  Hidden,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import Dropdown from "../dropdown/Dropdown";
 import Logo from "../../assets/logo.svg";
 import LeftDrawer from "../leftDrawer/LeftDrawer";
+import { ExpandMore } from "@mui/icons-material";
 export default function Header() {
   const userAuth = useSelector((state) => state.AuthReducer.isUserLoggedIn);
   const [search, setSearch] = useState("");
@@ -33,25 +39,16 @@ export default function Header() {
             <img src={Logo} alt="" className="logo" />
           </Link>
         </div>
-        <div className="locBox">
-          <Select>
-            <MenuItem value="Faisalabad">Faisalbad</MenuItem>
-            <MenuItem value="Karachi">Karachi</MenuItem>
-            <MenuItem value="Lahore">Lahore</MenuItem>
-            <MenuItem value="Islamabad">Islamabad</MenuItem>
-          </Select>
-        </div>
         <div className="searchBox">
           <Box
             sx={{
-              width: 500,
               maxWidth: "100%",
               display: "flex",
               alignItems: "center",
             }}
+            className="searchInnerBox"
           >
             <TextField
-              fullWidth
               placeholder="Find Cars,Mobile Phones and more ..."
               type="search"
               onChange={(e) => setSearch(e.target.value)}
@@ -61,16 +58,20 @@ export default function Header() {
             </Link>
           </Box>
         </div>
-        {userAuth ? (
-          <Dropdown />
-        ) : (
-          <Link to="/login" className="loginLink">
-            <h5>Login</h5>
+        <Hidden mdDown>
+          {userAuth ? (
+            <Dropdown />
+          ) : (
+            <Link to="/login" className="loginLink">
+              <h5>Login</h5>
+            </Link>
+          )}
+        </Hidden>
+        <Hidden mdDown>
+          <Link to="/add" className="sellLink">
+            <h5 style={{ marginTop: "5px" }}>+SELL</h5>
           </Link>
-        )}
-        <Link to="/add" className="sellLink">
-          <h5 style={{ marginTop: "5px" }}>+SELL</h5>
-        </Link>
+        </Hidden>
       </div>
     </div>
   );

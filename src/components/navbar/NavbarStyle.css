@@ -1,19 +1,25 @@
-.navbarSection{
-    
-    display: inline-flex;
-    padding-top: 16px;
-    margin-top: 0px;
+.navbarSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 16px;
+  margin-top: 0px;
+  margin-left: 10%;
 }
-.navList{
-    list-style: none;
-    display: inline-flex;
-    margin-left: 160px;
+.navList {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.navList li{
-    margin-left: 20px;
-    cursor: pointer;
+.navList li {
+  margin-left: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.link{
-    text-decoration: none !important;
-    color: black !important;
+.link {
+  text-decoration: none !important;
+  color: black !important;
 }

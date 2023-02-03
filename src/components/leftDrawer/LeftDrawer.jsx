@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./LeftDrawerStyle.css";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import MenuIcon from "@mui/icons-material/Menu";
 import AddIcon from "@mui/icons-material/Add";
 import FavoriteBorderRoundedIcon from "@mui/icons-material/FavoriteBorderRounded";
@@ -8,14 +8,20 @@ import SimCardRoundedIcon from "@mui/icons-material/SimCardRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { Drawer ,List,ListItemText,ListItemIcon,ListItemButton} from "@mui/material";
+import {
+  Drawer,
+  List,
+  ListItemText,
+  ListItemIcon,
+  ListItemButton,
+} from "@mui/material";
 import "./LeftDrawerStyle.css";
 import Avatar from "../../assets/avatar.png";
 import { doLogout } from "../../store/actions/AuthAction";
 export default function LeftDrawer() {
   const userName = useSelector((state) => state.AuthReducer.user);
-const dispatch = useDispatch()
-const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
@@ -30,11 +36,9 @@ const navigate = useNavigate();
     dispatch(doLogout(navigate("/")));
   };
 
-
-
   return (
     <>
-      <div style={{ marginTop: "12px" }}>
+      <div>
         <MenuIcon size={30} onClick={handleDrawerOpen} />
       </div>
       <Drawer
@@ -45,7 +49,7 @@ const navigate = useNavigate();
       >
         <div onClick={handleDrawerClose}>
           <div className="drawerContainer">
-            <h3 style={{paddingLeft:'20px',paddingTop:'20px'}}> X </h3>
+            <h3 style={{ paddingLeft: "20px", paddingTop: "20px" }}> X </h3>
             <div className="userContainer">
               <img src={Avatar} alt="" className="photo" />
               <div style={{ marginLeft: "20px" }}>
@@ -56,55 +60,47 @@ const navigate = useNavigate();
             </div>
             <hr />
             <List component="nav" aria-label="main mailbox folders">
-                <Link to="/add" style={{textDecoration:'none',color:'black'}}>
-                  <ListItemButton
-                onClick={handleDrawerClose}
-               
-                  >
-                    <ListItemIcon>
-                      <AddIcon />
-                    </ListItemIcon>
-                   
-                    <ListItemText primary="Sell Now" />
+              <Link
+                to="/add"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <ListItemButton onClick={handleDrawerClose}>
+                  <ListItemIcon>
+                    <AddIcon />
+                  </ListItemIcon>
 
-                   
-                  </ListItemButton>
-                  </Link>
-                  <Link to="/myads" style={{textDecoration:'none',color:'black'}}>
-
-                  <ListItemButton
-                onClick={handleDrawerClose}
-                
-                  >
-                    <ListItemIcon>
-                      <SimCardRoundedIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="My Ads" />
- 
-                  </ListItemButton>
-                  </Link>
-                  <Link to="/myfvrt" style={{textDecoration:'none',color:'black'}}>
-
-                  <ListItemButton
-                onClick={handleDrawerClose}
-           
-                  >
-
-                    <ListItemIcon>
-                      <FavoriteBorderRoundedIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="My Favourite" />
- 
-                  </ListItemButton>
-                  </Link>
-                  <ListItemButton onClick={logoutHandler} >
-                    <ListItemIcon>
-                      <LogoutRoundedIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Logout" />
-                  </ListItemButton>
-                </List>
-
+                  <ListItemText primary="Sell Now" />
+                </ListItemButton>
+              </Link>
+              <Link
+                to="/myads"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <ListItemButton onClick={handleDrawerClose}>
+                  <ListItemIcon>
+                    <SimCardRoundedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="My Ads" />
+                </ListItemButton>
+              </Link>
+              <Link
+                to="/myfvrt"
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <ListItemButton onClick={handleDrawerClose}>
+                  <ListItemIcon>
+                    <FavoriteBorderRoundedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="My Favourite" />
+                </ListItemButton>
+              </Link>
+              <ListItemButton onClick={logoutHandler}>
+                <ListItemIcon>
+                  <LogoutRoundedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Logout" />
+              </ListItemButton>
+            </List>
           </div>
         </div>
       </Drawer>

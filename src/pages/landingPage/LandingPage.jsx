@@ -13,14 +13,14 @@ export default function LandingPage() {
       <img src={Banner} alt="Banner" className="bannerimg" />
       <br />
       <Container>
-        <Grid container spacing={0}>
-          <Grid item xs={12} sm={12}>
-            <h2>Fresh Recommended</h2>
-            <br />
-          </Grid>
+        {/* <Grid container spacing={0}> */}
+        {/* <Grid item xs={12} sm={12}> */}
+        <h2>Fresh Recommended</h2>
+        <br />
+        {/* </Grid> */}
 
-          <AllProducts />
-        </Grid>
+        <AllProducts />
+        {/* </Grid> */}
       </Container>
       {/* <ToastContainer /> */}
     </div>
